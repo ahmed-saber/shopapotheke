@@ -1,7 +1,11 @@
 import Header from '../modules/header/header';
 
 function Home() {
-	return <Header />;
+	return (
+		<>
+			<Header />
+		</>
+	);
 }
 
 export default Home;
