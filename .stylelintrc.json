@@ -1,0 +1,21 @@
+{
+	"rules": {
+		"indentation": null,
+		"no-descending-specificity": null,
+		"selector-pseudo-class-no-unknown": [
+			true,
+			{
+				"ignorePseudoClasses": ["local", "global"]
+			}
+		],
+		"selector-pseudo-element-no-unknown": [
+			true,
+			{
+				"ignorePseudoElements": ["local", "global"]
+			}
+		],
+		"font-family-no-missing-generic-family-keyword": null
+	},
+	"extends": "stylelint-config-recommended-scss",
+	"plugins": ["stylelint-scss"]
+}
