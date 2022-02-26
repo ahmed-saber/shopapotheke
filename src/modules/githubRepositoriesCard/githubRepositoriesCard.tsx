@@ -1,8 +1,8 @@
-import styles from './githubRepositories.module.scss';
+import styles from './githubRepositoriesCard.module.scss';
 
-import { GithubRepositoriesProps } from './githubRepositoriesTypes';
+import { GithubRepositoriesProps } from './githubRepositoriesCardTypes';
 
-export default function GithubRepositories(props: GithubRepositoriesProps) {
+export default function GithubRepositoriesCard(props: GithubRepositoriesProps) {
 	return (
 		<div className={styles.card}>
 			<a rel="noreferrer" href={props.html_url} className={styles.avatarLink} target="_blank">

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getLastWeeksDate } from '../../services/utils';
-import GithubRepositories from '../../modules/githubRepositories/githubRepositories';
+import GithubRepositoriesCard from '../../modules/githubRepositoriesCard/githubRepositoriesCard';
 import { GithubRepositoriesType } from '../../types/github';
 import { getGithubRepositoriesAction } from '../../redux/actions/githubRepositories';
 import { GithubRepositoriesHolder } from '../../modules/githubRepositoriesHolder/githubRepositoriesHolder';
@@ -29,7 +29,7 @@ export default function GithubRepositoriesCont() {
 		<GithubRepositoriesHolder>
 			{repositories.items &&
 				repositories.items.map(repo => (
-					<GithubRepositories
+					<GithubRepositoriesCard
 						key={repo.id}
 						owner={repo.owner}
 						full_name={repo.full_name}
