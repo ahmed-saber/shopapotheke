@@ -12,6 +12,7 @@ export default function GithubRepositoriesCard(props: GithubRepositoriesProps) {
 				<h4>{props.full_name}</h4>
 				<p>{props.description}</p>
 			</div>
+			<div className={styles.start}>{props.children}</div>
 		</div>
 	);
 }

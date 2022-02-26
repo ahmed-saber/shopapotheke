@@ -5,4 +5,5 @@ export interface GithubRepositoriesProps {
 	full_name: string;
 	html_url: string;
 	description?: string | null;
+	children: React.ReactNode;
 }
