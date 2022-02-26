@@ -5,6 +5,7 @@ import { getLastWeeksDate } from '../../services/utils';
 import GithubRepositories from '../../modules/githubRepositories/githubRepositories';
 import { GithubRepositoriesType } from '../../types/github';
 import { getGithubRepositoriesAction } from '../../redux/actions/githubRepositories';
+import { GithubRepositoriesHolder } from '../../modules/githubRepositoriesHolder/githubRepositoriesHolder';
 
 export default function GithubRepositoriesCont() {
 	const dispatch = useDispatch();
@@ -25,11 +26,17 @@ export default function GithubRepositoriesCont() {
 	}, [dispatch]);
 
 	return (
-		<>
-			{repositories &&
-				repositories.items &&
-				repositories.items.length > 0 &&
-				repositories.items.map(repo => <GithubRepositories key={repo.id} />)}
-		</>
+		<GithubRepositoriesHolder>
+			{repositories.items &&
+				repositories.items.map(repo => (
+					<GithubRepositories
+						key={repo.id}
+						owner={repo.owner}
+						full_name={repo.full_name}
+						html_url={repo.html_url}
+						description={repo.description}
+					/>
+				))}
+		</GithubRepositoriesHolder>
 	);
 }
