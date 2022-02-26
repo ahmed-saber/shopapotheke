@@ -4,7 +4,7 @@ export interface GithubRepositoriesType {
 	items?: ItemsEntity[] | null;
 }
 
-interface ItemsEntity {
+export interface ItemsEntity {
 	id: number;
 	node_id: string;
 	name: string;
@@ -85,7 +85,7 @@ interface ItemsEntity {
 	score: number;
 }
 
-interface Owner {
+export interface Owner {
 	login: string;
 	id: number;
 	node_id: string;
