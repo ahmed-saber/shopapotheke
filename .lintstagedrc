@@ -1,0 +1,4 @@
+{
+    "*.{js,jsx,css,scss}": "pretty-quick --staged",
+    "*.{js,jsx}": "eslint --fix",
+}
