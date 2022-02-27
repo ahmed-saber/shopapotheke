@@ -52,8 +52,10 @@ export default function GithubRepositoriesCont() {
 						.map(repo => (
 							<GithubRepositoriesCard
 								key={repo.id}
+								stars={repo.stargazers_count}
 								owner={repo.owner}
 								html_url={repo.html_url}
+								dateTime={repo.created_at}
 								full_name={repo.full_name}
 								description={repo.description}
 							>

@@ -6,6 +6,8 @@
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
+	flex-wrap: wrap;
+	background-color: #fff;
 }
 
 .card:hover {
@@ -24,4 +26,27 @@
 .container {
 	flex: 3;
 	padding: 2px 16px;
+}
+
+.title {
+	margin: 0 0 10px;
+	font-size: 13px;
+}
+
+.description {
+	margin: 0 0 10px;
+	font-size: 13px;
+}
+
+.date {
+	width: 100%;
+	margin-top: auto;
+	text-align: right;
+	font-size: 11px;
+}
+
+.stars {
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
 }

@@ -9,10 +9,17 @@ export default function GithubRepositoriesCard(props: GithubRepositoriesProps) {
 				<img src={props.owner.avatar_url} alt="Avatar" className={styles.avatar} />
 			</a>
 			<div className={styles.container}>
-				<h4>{props.full_name}</h4>
-				<p>{props.description}</p>
+				<h4 className={styles.title}>{props.full_name}</h4>
+				<p className={styles.description}>{props.description}</p>
 			</div>
-			<div className={styles.start}>{props.children}</div>
+			<div className={styles.stars}>
+				{props.children}
+				<br />
+				{props.stars}
+			</div>
+			<time dateTime={props.dateTime} className={styles.date}>
+				{props.dateTime}
+			</time>
 		</div>
 	);
 }
