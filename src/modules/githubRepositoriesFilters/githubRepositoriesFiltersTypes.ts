@@ -1,3 +1,4 @@
 export interface GithubRepositoriesFiltersProps {
-	onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
+	onChangeDays: (e: React.FormEvent<HTMLSelectElement>) => void;
+	onChangeFilter: (e: React.FormEvent<HTMLSelectElement>) => void;
 }

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getStars, isStarSet, toggleStar } from '../../services/github';
-import { getLastWeeksDate } from '../../services/utils';
+import { getDateFormated, getDateFromToday } from '../../services/utils';
 import GithubRepositoriesCard from '../../modules/githubRepositoriesCard/githubRepositoriesCard';
 import { GithubRepositoriesType } from '../../types/github';
 import GithubRepositoriesFilters from '../../modules/githubRepositoriesFilters/githubRepositoriesFilters';
@@ -29,13 +29,23 @@ export default function GithubRepositoriesCont() {
 		setFilterState(e.target.value);
 	}, []);
 
-	useEffect(() => {
-		const lastWeek = getLastWeeksDate();
-		const month = lastWeek.getMonth() < 10 ? `0${lastWeek.getMonth()}` : lastWeek.getMonth();
+	const onChangeDaysEvent = useCallback(
+		e => {
+			dispatch(
+				getGithubRepositoriesAction({
+					q: `created:>${getDateFormated(getDateFromToday(parseInt(e.target.value)))}`,
+					sort: 'stars',
+					order: 'desc'
+				})
+			);
+		},
+		[dispatch]
+	);
 
+	useEffect(() => {
 		dispatch(
 			getGithubRepositoriesAction({
-				q: `created:>${lastWeek.getFullYear()}-${month}-${lastWeek.getDate()}`,
+				q: `created:>${getDateFormated(getDateFromToday(7))}`,
 				sort: 'stars',
 				order: 'desc'
 			})
@@ -46,7 +56,7 @@ export default function GithubRepositoriesCont() {
 		<GithubRepositoriesHolder>
 			{repositories.items && (
 				<>
-					<GithubRepositoriesFilters onChange={onChangeFilterEvent} />
+					<GithubRepositoriesFilters onChangeDays={onChangeDaysEvent} onChangeFilter={onChangeFilterEvent} />
 					{repositories.items
 						.filter(repo => (filterState == 2 ? isStarSet(repo.id) : true))
 						.map(repo => (
