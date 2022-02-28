@@ -4,7 +4,7 @@ import { GithubRepositoriesProps } from './githubRepositoriesCardTypes';
 
 export default function GithubRepositoriesCard(props: GithubRepositoriesProps) {
 	return (
-		<div className={styles.card}>
+		<article className={styles.card}>
 			<a rel="noreferrer" href={props.html_url} className={styles.avatarLink} target="_blank">
 				<img src={props.owner.avatar_url} alt="Avatar" className={styles.avatar} />
 			</a>
@@ -20,6 +20,6 @@ export default function GithubRepositoriesCard(props: GithubRepositoriesProps) {
 			<time dateTime={props.dateTime} className={styles.date}>
 				{props.dateTime}
 			</time>
-		</div>
+		</article>
 	);
 }
